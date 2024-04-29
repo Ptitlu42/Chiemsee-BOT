@@ -1,0 +1,12 @@
+{
+  "name": "chiemsee-tickets",
+  "version": "1.0.0",
+  "description": "Tickets Manager",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "discord.js": "^12.5.3"
+  }
+}
