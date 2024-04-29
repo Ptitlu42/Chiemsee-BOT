@@ -7,6 +7,11 @@ const commands = [
     name: "config-clean",
     description: "Configure la supression des messages",
   },
+
+  {
+    name: "config-list",
+    description: "Liste les configurations",
+  },
 ];
 
 const rest = new REST({ version: "9" }).setToken(token);

@@ -126,4 +126,27 @@ const configClean = async (interaction) => {
   }
 };
 
-module.exports = { configClean };
+const { getConfigurations } = require("./database");
+
+const configList = async (interaction) => {
+  try {
+    const configurations = await getConfigurations(interaction.guildId);
+    let response = "⚙️ **Configurations de suppression des messages:**\n\n";
+
+    configurations.forEach((config) => {
+      config.channel_ids.forEach((channelId) => {
+        response += `⏳**Canal:** <#${channelId}> - Durée: ${config.duration} minutes\n`;
+      });
+    });
+
+    await interaction.reply({ content: response, ephemeral: true });
+  } catch (error) {
+    console.error("❌Error during config list:", error);
+    await interaction.reply({
+      content: "Erreur lors de la récupération des configurations.",
+      ephemeral: true,
+    });
+  }
+};
+
+module.exports = { configClean, configList };

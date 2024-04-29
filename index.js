@@ -1,6 +1,6 @@
 const { Client, GatewayIntentBits, InteractionType } = require("discord.js");
 const config = require("./config.json");
-const { configClean } = require("./configClean");
+const { configClean, configList } = require("./configClean");
 const { cleanChannels } = require("./cleanChannels");
 const cron = require("node-cron");
 const { addConfiguration, getConfigurations } = require("./database.js");
@@ -47,6 +47,13 @@ client.on("interactionCreate", async (interaction) => {
     await configClean(interaction);
   } else if (interaction.isStringSelectMenu() || interaction.isModalSubmit()) {
     await configClean(interaction);
+  }
+
+  if (
+    interaction.type === InteractionType.ApplicationCommand &&
+    interaction.commandName === "config-list"
+  ) {
+    await configList(interaction);
   }
 });
 
