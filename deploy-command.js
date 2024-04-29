@@ -4,12 +4,12 @@ const { clientId, guildId, token } = require("./config.json");
 
 const commands = [
   {
-    name: "config-clean",
+    name: "config-clean-msg",
     description: "Configure la supression des messages",
   },
 
   {
-    name: "config-list",
+    name: "config-clean-msg-list",
     description: "Liste les configurations",
   },
 ];

@@ -14,7 +14,7 @@ const configClean = async (interaction) => {
   try {
     console.log(`💡Received interaction type: ${interaction.type}`);
 
-    if (interaction.isCommand() && interaction.commandName === "config-clean") {
+    if (interaction.isCommand() && interaction.commandName === "config-clean-msg") {
       const channels = interaction.guild.channels.cache.filter((c) =>
         c.isTextBased()
       );

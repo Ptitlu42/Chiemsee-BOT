@@ -42,7 +42,7 @@ cron.schedule("* * * * *", async () => {
 client.on("interactionCreate", async (interaction) => {
   if (
     interaction.type === InteractionType.ApplicationCommand &&
-    interaction.commandName === "config-clean"
+    interaction.commandName === "config-clean-msg"
   ) {
     await configClean(interaction);
   } else if (interaction.isStringSelectMenu() || interaction.isModalSubmit()) {
@@ -51,7 +51,7 @@ client.on("interactionCreate", async (interaction) => {
 
   if (
     interaction.type === InteractionType.ApplicationCommand &&
-    interaction.commandName === "config-list"
+    interaction.commandName === "config-clean-msg-list"
   ) {
     await configList(interaction);
   }
